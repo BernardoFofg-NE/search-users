@@ -89,7 +89,13 @@ export const Home = () => {
         gap={8}
         paddingX={16}
       >
-        <Stack as="form" onSubmit={handleSubmit} spacing={4} width="100%">
+        <Stack
+          as="form"
+          onSubmit={handleSubmit}
+          spacing={4}
+          width="100%"
+          maxW={550}
+        >
           <Flex justifyContent="center">
             <Image src={Logo.src} width={320} marginBottom={4} />
           </Flex>
@@ -116,7 +122,7 @@ export const Home = () => {
         </Stack>
 
         {!isResponsive && (
-          <Stack width="100%">
+          <Stack>
             <Image src={Wrapper.src} />
           </Stack>
         )}
