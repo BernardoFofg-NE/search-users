@@ -89,8 +89,10 @@ export const Home = () => {
         gap={8}
         paddingX={16}
       >
-        <Stack as="form" onSubmit={handleSubmit} spacing={4}>
-          <Image src={Logo.src} width={440} marginBottom={4} />
+        <Stack as="form" onSubmit={handleSubmit} spacing={4} width="100%">
+          <Flex justifyContent="center">
+            <Image src={Logo.src} width={320} marginBottom={4} />
+          </Flex>
           <InputGroup>
             <InputLeftAddon backgroundColor="transparent">
               <FaUser color="white" />
@@ -114,7 +116,7 @@ export const Home = () => {
         </Stack>
 
         {!isResponsive && (
-          <Stack>
+          <Stack width="100%">
             <Image src={Wrapper.src} />
           </Stack>
         )}
