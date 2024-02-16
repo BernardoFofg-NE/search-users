@@ -1,11 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-alert */
 /* eslint-disable @typescript-eslint/no-shadow */
-import { Button, Flex, Input, Stack, Text, useToast } from '@chakra-ui/react';
+import {
+  Button,
+  Flex,
+  Image,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  Stack,
+  useToast,
+} from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FaUser } from 'react-icons/fa';
 
 import users from '../../../json/users.json';
+import Logo from '~/lib/assets/logo.png';
+import Wrapper from '~/lib/assets/wrapper-forget.svg';
 import { Layout } from '~/lib/layout';
 
 export const Home = () => {
@@ -64,16 +76,32 @@ export const Home = () => {
   }, [email]);
   return (
     <Layout>
-      <Flex justify="center" align="center" w="100%" h="100vh">
-        <Stack as="form" onSubmit={handleSubmit}>
-          <Input
-            onChange={handleInputChange}
-            value={username}
-            type="text"
-            placeholder="Insira o username"
-          />
-          <Button type="submit">Encontrar email</Button>
-          <Text>Email: {email}</Text>
+      <Flex justify="center" align="center" w="100%" h="100vh" gap={8}>
+        <Stack as="form" onSubmit={handleSubmit} spacing={4}>
+          <Image src={Logo.src} width={440} />
+          <InputGroup>
+            <InputLeftAddon backgroundColor="transparent">
+              <FaUser color="white" />
+            </InputLeftAddon>
+            <Input
+              onChange={handleInputChange}
+              value={username}
+              type="text"
+              placeholder="Insira o username"
+            />
+          </InputGroup>
+          <Button
+            type="submit"
+            backgroundColor="label.primary"
+            _hover={{ opacity: 0.7 }}
+            textColor="white"
+          >
+            Encontrar email
+          </Button>
+        </Stack>
+
+        <Stack>
+          <Image src={Wrapper.src} />
         </Stack>
       </Flex>
     </Layout>
