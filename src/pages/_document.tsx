@@ -15,6 +15,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap"
             rel="stylesheet"
           />
+          <link rel="shortcut icon" href="./favicon.ico" />
         </Head>
         <body>
           <Main />

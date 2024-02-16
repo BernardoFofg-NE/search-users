@@ -90,7 +90,7 @@ export const Home = () => {
         paddingX={16}
       >
         <Stack as="form" onSubmit={handleSubmit} spacing={4}>
-          <Image src={Logo.src} width={440} />
+          <Image src={Logo.src} width={440} marginBottom={4} />
           <InputGroup>
             <InputLeftAddon backgroundColor="transparent">
               <FaUser color="white" />
