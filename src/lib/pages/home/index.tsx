@@ -9,6 +9,7 @@ import {
   InputGroup,
   InputLeftAddon,
   Stack,
+  useBreakpointValue,
   useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
@@ -25,6 +26,10 @@ export const Home = () => {
   const [email, setEmail] = useState('');
 
   const toast = useToast();
+  const isResponsive = useBreakpointValue({
+    base: true,
+    md: false,
+  });
 
   const findEmailByUsername = (username: string) => {
     const user = users.find(
@@ -76,7 +81,14 @@ export const Home = () => {
   }, [email]);
   return (
     <Layout>
-      <Flex justify="center" align="center" w="100%" h="100vh" gap={8}>
+      <Flex
+        justify="center"
+        align="center"
+        w="100%"
+        h="100vh"
+        gap={8}
+        paddingX={16}
+      >
         <Stack as="form" onSubmit={handleSubmit} spacing={4}>
           <Image src={Logo.src} width={440} />
           <InputGroup>
@@ -101,9 +113,11 @@ export const Home = () => {
           </Button>
         </Stack>
 
-        <Stack>
-          <Image src={Wrapper.src} />
-        </Stack>
+        {!isResponsive && (
+          <Stack>
+            <Image src={Wrapper.src} />
+          </Stack>
+        )}
       </Flex>
     </Layout>
   );
