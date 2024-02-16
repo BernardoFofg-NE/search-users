@@ -109,7 +109,7 @@ export const Home = () => {
             _hover={{ opacity: 0.7 }}
             textColor="white"
           >
-            Encontrar email
+            Receber senha
           </Button>
         </Stack>
 
