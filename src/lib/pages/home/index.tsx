@@ -88,6 +88,7 @@ export const Home = () => {
               value={username}
               type="text"
               placeholder="Insira o username"
+              textColor="whiteAlpha.800"
             />
           </InputGroup>
           <Button
