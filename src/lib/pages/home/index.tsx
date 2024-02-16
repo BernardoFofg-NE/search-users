@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-alert */
 /* eslint-disable @typescript-eslint/no-shadow */
-import { Button, Flex, Input, Stack, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Button, Flex, Input, Stack, Text, useToast } from '@chakra-ui/react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 import users from '../../../json/users.json';
 import { Layout } from '~/lib/layout';
@@ -9,6 +11,8 @@ import { Layout } from '~/lib/layout';
 export const Home = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+
+  const toast = useToast();
 
   const findEmailByUsername = (username: string) => {
     const user = users.find(
@@ -31,6 +35,33 @@ export const Home = () => {
       alert('Nenhum usuário encontrado');
     }
   };
+
+  const postNewPass = async () => {
+    if (email === '') {
+      return;
+    }
+    try {
+      await axios.post(
+        'https://greenbets.waaffiliates.com/users/request-new-pass',
+        {
+          email,
+        }
+      );
+      toast({
+        title: 'Nova senha solicitada',
+        status: 'success',
+      });
+    } catch (e) {
+      toast({
+        title: 'Usuário não encontrado',
+        status: 'error',
+      });
+    }
+  };
+
+  useEffect(() => {
+    postNewPass();
+  }, [email]);
   return (
     <Layout>
       <Flex justify="center" align="center" w="100%" h="100vh">
