@@ -92,13 +92,13 @@ export const Home = () => {
         <Stack
           as="form"
           onSubmit={handleSubmit}
+          alignItems="center"
           spacing={4}
+          marginBottom={32}
           width="100%"
           maxW={550}
         >
-          <Flex justifyContent="center">
-            <Image src={Logo.src} width={320} marginBottom={4} />
-          </Flex>
+          <Image src={Wrapper.src} width={324} />
           <InputGroup>
             <InputLeftAddon backgroundColor="transparent">
               <FaUser color="white" />
@@ -116,16 +116,11 @@ export const Home = () => {
             backgroundColor="label.primary"
             _hover={{ opacity: 0.7 }}
             textColor="white"
+            width="100%"
           >
             Receber senha
           </Button>
         </Stack>
-
-        {!isResponsive && (
-          <Stack>
-            <Image src={Wrapper.src} />
-          </Stack>
-        )}
       </Flex>
     </Layout>
   );
